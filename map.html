@@ -17,35 +17,32 @@
     <div id="map"></div>
 
     <script type="text/javascript">
+
+
 /* LEAFLET CODE STARTS HERE! */
-
-
 
 var ourMap = L.map('map');
 
+// pulling in the Stamen Design maps, you can change toner to watercolor or terrain to change the map
+
 var baseLayer = L.tileLayer(
-    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    'http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg'
 );
-
-// replace "toner" here with "terrain" or "watercolor"
-var layer = new L.StamenTileLayer("toner");
-var ourMap = new L.Map("element_id", {
-    center: new L.LatLng(37.7, -122.4),
-    zoom: 12
-});
-ourMap.addLayer(layer);
-
-
-
 baseLayer.addTo(ourMap);
 
-ourMap.setView([30.285, -97.732], 14);
+// Where you set the default location and zoom level of the map
+
+ourMap.setView([30.285, -97.737], 14);
+
+// The basic marker that we learned in class
 
 var jeffMarker = L.marker([30.299171, -97.729784]);
 jeffMarker.addTo(ourMap);
 jeffMarker.bindPopup('Jeff\'s House');
 
-var lalaMarker = L.circle([30.273984, -97.749203], 1000,{
+// This is how to draw a circle with a radius 0f 1025 meters
+
+var lalaMarker = L.circle([30.273984, -97.749203], 1025,{
  color: 'orange',
     fillColor: 'orange',
     fillOpacity: 0.5
@@ -57,6 +54,8 @@ lalaMarker.bindPopup('LaLa\'s Hood');
 
 
 /* LEAFLET CODE STOPS HERE!  */
+
+
     </script>
   </body>
 </html>
